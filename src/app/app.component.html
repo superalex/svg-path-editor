@@ -26,10 +26,6 @@
                     </div>
                 </div>
                 <div class="path-buttons">
-                    
-                    <app-open (openPath)="openPath($event.path, $event.name)" style="margin-left: 6px;"></app-open>
-                    <app-save [path]="rawPath" [(name)]="pathName"></app-save>
-
                     <button mat-mini-fab
                         color="primary"
                         style="transform: none; margin:0 4px;"
@@ -145,7 +141,6 @@
                 <div class="row">
                     <mat-checkbox [(ngModel)]="cfg.filled" style="flex:1">Fill</mat-checkbox>
                     <mat-checkbox [(ngModel)]="cfg.preview" style="flex:1">Preview</mat-checkbox>
-                    <mat-checkbox [ngModel]="cfg.minifyOutput" (ngModelChange)="cfg.minifyOutput=$event;afterModelChange()" style="flex:1">Minify output</mat-checkbox>
                 </div>
 
             </app-expandable>
@@ -383,18 +378,6 @@
                 #uploader
             ></app-upload-image>
 
-            <button mat-mini-fab
-                [color]="isEditingImages ? 'accent' : 'primary'"
-                [matTooltip]="isEditingImages ? '' : 'Toggle image management mode'"
-                matTooltipPosition="below"
-                style="margin-right: 24px;margin-left: 24px"
-                (click)="toggleImageEditing(uploader)"
-            >
-                <mat-icon>image</mat-icon>
-            </button>
-
-            <app-export [path]="rawPath" [name]="pathName || '' " style="margin-right: 8px"></app-export>
-            <app-share [path]="rawPath"></app-share>
         </div>
         <div class="scene-bottom-actions">
             <button

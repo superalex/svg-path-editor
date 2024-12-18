@@ -47,19 +47,8 @@ export class StorageService {
 
   load() {
     this.storedPaths = [];
-    const stored = localStorage.getItem('storedPaths');
-    if (stored) {
-      const parsed = JSON.parse(stored) as {creationDate: string, changeDate: string, name: string, path: string}[];
-      this.storedPaths = parsed.map(it => ({
-        creationDate: new Date(it.creationDate),
-        changeDate: new Date(it.changeDate),
-        name: it.name,
-        path: it.path
-      }));
-    }
   }
 
   save() {
-    localStorage.setItem('storedPaths', JSON.stringify(this.storedPaths));
   }
 }

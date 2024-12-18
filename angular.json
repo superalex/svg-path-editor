@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "svg-path-editor": {
+    "penpot-path-editor": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/svg-path-editor",
+            "outputPath": "dist/penpot-path-editor",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -26,17 +26,20 @@
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
+              "src/icon.png",
               "src/favicon.ico",
               "src/assets",
-              "src/manifest.webmanifest"
+              "src/manifest.webmanifest",
+              "src/manifest.json",
+              "src/CORS",
+              "src/_headers",
+              "src/plugin.js"
             ],
             "styles": [
               "src/custom-theme.scss",
               "src/styles.scss"
             ],
-            "scripts": [],
-            "serviceWorker": true,
-            "ngswConfigPath": "ngsw-config.json"
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -67,12 +70,15 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "disableHostCheck": true
+          },
           "configurations": {
             "production": {
-              "buildTarget": "svg-path-editor:build:production"
+              "buildTarget": "penpot-path-editor:build:production"
             },
             "development": {
-              "buildTarget": "svg-path-editor:build:development"
+              "buildTarget": "penpot-path-editor:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -80,7 +86,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "svg-path-editor:build"
+            "buildTarget": "penpot-path-editor:build"
           }
         },
         "test": {

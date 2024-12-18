@@ -11,10 +11,10 @@ import { ConfigService } from './config.service';
 import { browserComputePathBoundingBox } from './svg-bbox';
 import { reversePath } from '../lib/reverse-path';
 import { optimizePath } from '../lib/optimize-path';
+import * as _ from 'lodash';
 
-export const kDefaultPath = `M 4 8 L 10 1 L 13 0 L 12 3 L 5 9 C 6 10 6 11 7 10 C 7 11 8 12 7 12 A 1.42 1.42 0 0 1 6 13 `
-+ `A 5 5 0 0 0 4 10 Q 3.5 9.9 3.5 10.5 T 2 11.8 T 1.2 11 T 2.5 9.5 T 3 9 A 5 5 90 0 0 0 7 A 1.42 1.42 0 0 1 1 6 `
-+ `C 1 5 2 6 3 6 C 2 7 3 7 4 8 M 10 1 L 10 3 L 12 3 L 10.2 2.8 L 10 1`;
+
+export const kDefaultPath = '';
 
 @Component({
   selector: 'app-root',
@@ -86,6 +86,14 @@ export class AppComponent implements AfterViewInit {
   trackByIndex = (idx: number, _: unknown) => idx;
   formatNumber = (v: number) => formatNumber(v, 4);
 
+  isShapeSelected = false;
+
+  penpot_id = "";
+
+  private debouncedPostMessage = _.debounce((message: any) => {
+    parent.postMessage(message, "*");
+  }, 300);
+
   constructor(
     matRegistry: MatIconRegistry,
     sanitizer: DomSanitizer,
@@ -97,6 +105,15 @@ export class AppComponent implements AfterViewInit {
     }
     this.parsedPath = new SvgPath('');
     this.reloadPath(this.rawPath, true);
+
+    window.addEventListener("message", async (event) => {
+      if (event.data.type === "set_path") {
+        const autozoom = this.penpot_id != event.data.penpot_id;
+        this.reloadPath(event.data.content, autozoom);
+        this.penpot_id = event.data.penpot_id;
+      }
+    });
+    parent.postMessage({ type: 'ready' }, "*");
   }
 
   @HostListener('document:keydown', ['$event']) onKeyDown($event: KeyboardEvent) {
@@ -375,6 +392,11 @@ export class AppComponent implements AfterViewInit {
   afterModelChange() {
     this.reloadPoints();
     this.rawPath = this.parsedPath.asString(4, this.cfg.minifyOutput);
+    const message = {
+      type: "update-path",
+      content: this.rawPath
+    };
+    this.debouncedPostMessage(message);
   }
 
   roundValues(decimals: number) {

@@ -2,7 +2,6 @@ import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ServiceWorkerModule } from '@angular/service-worker';
 import { HttpClientModule } from '@angular/common/http';
 
 import { MatInputModule } from '@angular/material/input';
@@ -74,13 +73,7 @@ import { CopiedSnackbarComponent } from './copied-snackbar/copied-snackbar.compo
     MatSliderModule,
     MatSnackBarModule,
     BrowserAnimationsModule,
-    ScrollingModule,
-    ServiceWorkerModule.register('ngsw-worker.js', {
-      enabled: !isDevMode(),
-      // Register the ServiceWorker as soon as the application is stable
-      // or after 30 seconds (whichever comes first).
-      registrationStrategy: 'registerWhenStable:30000'
-    })
+    ScrollingModule
   ],
   providers: [{
     provide: MAT_TOOLTIP_SCROLL_STRATEGY,
