@@ -13,6 +13,7 @@ import { reversePath } from '../lib/reverse-path';
 import { optimizePath } from '../lib/optimize-path';
 import * as _ from 'lodash';
 
+const searchParams = new URLSearchParams(window.location.search);
 
 export const kDefaultPath = '';
 
@@ -94,6 +95,8 @@ export class AppComponent implements AfterViewInit {
     parent.postMessage(message, "*");
   }, 300);
 
+  theme = searchParams.get("theme") ?? "light";
+
   constructor(
     matRegistry: MatIconRegistry,
     sanitizer: DomSanitizer,
@@ -111,6 +114,9 @@ export class AppComponent implements AfterViewInit {
         const autozoom = this.penpot_id != event.data.penpot_id;
         this.reloadPath(event.data.content, autozoom);
         this.penpot_id = event.data.penpot_id;
+      }
+      else if (event.data.type === "theme") {
+        this.theme = event.data.content;
       }
     });
     parent.postMessage({ type: 'ready' }, "*");
