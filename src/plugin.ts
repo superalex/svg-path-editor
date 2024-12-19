@@ -1,4 +1,4 @@
-penpot.ui.open('Penpot path editor', `?theme=${penpot.theme}`);
+penpot.ui.open('Penpot path editor', `?theme=${penpot.theme}`, {width: 800, height: 600});
 
 let selectedContent = "";
 

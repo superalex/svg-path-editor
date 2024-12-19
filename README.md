@@ -1,6 +1,7 @@
-# SvgPathEditor
-Edit or create SVG paths in browser: https://yqnn.github.io/svg-path-editor/
-[![Image of Yaktocat](./doc/screenshot.png)](https://yqnn.github.io/svg-path-editor/)
+# Penpot Path Editor
+
+Penppot plugin to edit or create SVG paths based on: https://yqnn.github.io/svg-path-editor/
+![Image of Yaktocat in Penpot](./doc/screenshot-penpot.png)
 
 ## How to Use
 
@@ -60,8 +61,3 @@ Run `npm test` to execute the unit tests via [Karma](https://karma-runner.github
 
 ### With Docker
 Run `docker build -t svg-path-editor . && docker run -p 4200:4200 svg-path-editor` or `docker-compose up`.
-
-## Special Thanks
-Many thanks to our sponsors 🙇 !
-
-[@riovir](https://github.com/riovir), [@miniBill](https://github.com/miniBill), [@GitHub](https://github.com/GitHub), [@alexandernst](https://github.com/alexandernst), [@Filimoa](https://github.com/Filimoa), [@agrogers](https://github.com/agrogers), [@MilesTails01](https://github.com/MilesTails01), [@robetus](https://github.com/robetus), [@adcar](https://github.com/adcar), [@getsentry](https://github.com/getsentry), [@simplicitywebdesign](https://github.com/simplicitywebdesign) 😎, [@PassPilot](https://github.com/PassPilot), [@zeroin](https://github.com/zeroin), [@jholmes-dev](https://github.com/jholmes-dev), [@sh-csg](https://github.com/sh-csg), [@MarcoRudin](https://github.com/MarcoRudin), [@Oddpod](https://github.com/Oddpod), [@roboflow](https://github.com/roboflow)
