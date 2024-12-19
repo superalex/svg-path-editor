@@ -225,6 +225,8 @@ body .left-column-wrapper .left-column {
     background-color: var(--background-primary);
 	color: var(--foreground-secondary);
 	padding-right: var(--spacing-8);
+    scrollbar-width: inherit;
+    height: 100%;
 }
 
 /* Inputs
@@ -380,6 +382,7 @@ html body .left-column .mat-mdc-mini-fab.mat-accent {
 html body .left-column .mat-mdc-mini-fab.mat-primary {
     background-color: var(--background-secondary);
     color: var(--foreground-secondary);
+    border: 1px solid var(--background-quaternary);
 }
 html body .left-column .mat-mdc-mini-fab.mat-accent {
     background-color: var(--accent-primary);
@@ -555,4 +558,54 @@ body .mat-mdc-menu-panel {
     background-color: #18181a;
 	color: #8f9da3;
     font-family: Work Sans, sans-serif;
+}
+
+/*SVG playground
+--------------------------*/
+
+// Button primary
+html body .mat-mdc-mini-fab.mat-accent {
+    --mdc-fab-small-container-color: var(--da-primary);
+    --mat-fab-small-foreground-color: var(--db-primary);
+    --mat-fab-small-state-layer-color: var(--db-primary);
+    --mat-fab-small-ripple-color: rgba(255, 255, 255, 0.1);
+}
+// Button secondary
+html body .mat-mdc-mini-fab.mat-primary {
+    --mdc-fab-small-container-color: var(--db-primary);
+    --mat-fab-small-foreground-color: var(--df-secondary);
+    --mat-fab-small-state-layer-color: var(--df-secondary);
+    --mat-fab-small-ripple-color: rgba(255, 255, 255, 0.1);
+    box-shadow: none;
+    border: 1px solid var(--db-quaternary);
+    &:hover {
+        background-color: var(--db-secondary);
+        color: var(--da-primary)
+    }
+}
+// Buttons disabled
+.mat-mdc-button-disabled {
+    --mdc-fab-small-container-color: var(--db-tertiary);
+    --mat-fab-small-foreground-color: var(--df-secondary);
+    --mat-fab-small-state-layer-color: var(--df-secondary);
+}
+
+html body path.filled.ng-star-inserted {
+    fill: var(--da-primary);
+    opacity: 0.2;
+}
+.drawings > svg {
+    background-color: var(--db-quaternary) !important;
+}
+
+/* Header
+--------------------------*/
+.inner >.header {
+    // cant get there?
+}
+/*Hiding footer
+-> ensure to credit and provide access to sponsorship somewhere else
+--------------------------*/
+html body .footer.ng-star-inserted  {
+    display: none;
 }
