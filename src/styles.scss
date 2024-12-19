@@ -607,9 +607,6 @@ html body .mat-mdc-mini-fab.mat-mdc-button-disabled {
     color: var(--foreground-tertiary);
 }
 
-.drawings > svg {
-    background-color: var(--background-tertiary);
-}
 
 /* Header
 --------------------------*/
@@ -625,6 +622,9 @@ html body .footer.ng-star-inserted  {
 
 /* canvas.component.css overrides
 --------------------------*/
+html body .drawings > svg {
+    background-color: var(--background-tertiary);
+}
 html body svg path.ng-star-inserted {
     stroke:var(--foreground-primary);
 }
@@ -662,16 +662,16 @@ html body svg circle.hovered.ng-star-inserted {
 html body svg circle.dragged.ng-star-inserted {
     fill:var(--accent-primary);
 }
-html body svg :host.preview.ng-star-inserted {
-    background-color:var(--foreground-primary);
+html body .drawings > .preview {
+    background-color:var(--background-tertiary);
 }
-html body svg :host.preview path.ng-star-inserted {
+html body .drawings > .preview  path {
     stroke:var(--background-secondary);
 }
-html body svg :host.preview path.filled.ng-star-inserted {
+html body .drawings > .preview  path.filled {
     fill:var(--background-secondary);
 }
-html body svg :host.preview path.hovered.ng-star-inserted {
+html body .drawings > .preview  path.hovered {
     stroke: var(--accent-quaternary);
 }
 html body svg text.tick.ng-star-inserted {
