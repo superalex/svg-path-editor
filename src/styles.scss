@@ -10,6 +10,7 @@
 	--background-quaternary: var(--db-quaternary);
 	--foreground-primary: var(--df-primary);
 	--foreground-secondary: var(--df-secondary);
+	--foreground-tertiary: var(--df-tertiary);
 	--accent-primary: var(--da-primary);
 	--accent-primary-muted: var(--da-primary-muted);
 	--accent-secondary: var(--da-secondary);
@@ -25,6 +26,7 @@
 	--background-quaternary: var(--lb-quaternary);
 	--foreground-primary: var(--lf-primary);
 	--foreground-secondary: var(--lf-secondary);
+	--foreground-tertiary: var(--lf-tertiary);
 	--accent-primary: var(--la-primary);
 	--accent-primary-muted: var(--la-primary-muted);
 	--accent-secondary: var(--la-secondary);
@@ -58,8 +60,10 @@
 	--lb-quaternary: #eef0f2;
 	--df-primary: #ffffff;
 	--df-secondary: #8f9da3;
+	--df-tertiary: #495e74;
 	--lf-primary: #000000;
 	--lf-secondary: #495e74;
+	--lf-tertiary: #8f9da3;
 	--da-primary: #7EFFF5;
 	--da-primary-muted: #426158;
 	--da-secondary: #BB97D8;
@@ -579,37 +583,40 @@ body .mat-mdc-menu-panel {
 
 // Button primary
 html body .mat-mdc-mini-fab.mat-accent {
-    --mdc-fab-small-container-color: var(--da-primary);
-    --mat-fab-small-foreground-color: var(--db-primary);
-    --mat-fab-small-state-layer-color: var(--db-primary);
+    --mdc-fab-small-container-color: var(--accent-primary);
+    --mat-fab-small-foreground-color: var(--background-primary);
+    --mat-fab-small-state-layer-color: var(--background-primary);
     --mat-fab-small-ripple-color: rgba(255, 255, 255, 0.1);
 }
 // Button secondary
 html body .mat-mdc-mini-fab.mat-primary {
-    --mdc-fab-small-container-color: var(--db-primary);
-    --mat-fab-small-foreground-color: var(--df-secondary);
-    --mat-fab-small-state-layer-color: var(--df-secondary);
+    --mdc-fab-small-container-color: var(--background-primary);
+    --mat-fab-small-foreground-color: var(--foreground-secondary);
+    --mat-fab-small-state-layer-color: var(--foreground-secondary);
     --mat-fab-small-ripple-color: rgba(255, 255, 255, 0.1);
     box-shadow: none;
-    border: 1px solid var(--db-quaternary);
+    border: 1px solid var(--background-quaternary);
     &:hover {
-        background-color: var(--db-secondary);
-        color: var(--da-primary)
+        background-color: var(--background-secondary);
+        color: var(--accent-primary)
     }
 }
 // Buttons disabled
-.mat-mdc-button-disabled {
-    --mdc-fab-small-container-color: var(--db-tertiary);
-    --mat-fab-small-foreground-color: var(--df-secondary);
-    --mat-fab-small-state-layer-color: var(--df-secondary);
+html body .mat-mdc-mini-fab.mat-mdc-button-disabled {
+    background-color: var(--background-tertiary);
+    color: var(--foreground-tertiary);
 }
 
 html body path.filled.ng-star-inserted {
-    fill: var(--da-primary);
+    fill: var(--accent-primary);
     opacity: 0.2;
 }
 .drawings > svg {
-    background-color: var(--db-tertiary);
+    background-color: var(--background-tertiary);
+}
+
+html body svg line.grid.ng-star-inserted {
+    stroke: var(--background-secondary);
 }
 
 /* Header
