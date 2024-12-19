@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, ElementRef, EventEmitter, HostListener, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { Subject } from 'rxjs';
-import { buffer, map, throttleTime } from 'rxjs/operators';
+import { buffer, filter, map, throttleTime } from 'rxjs/operators';
 import { Image } from '../image';
 import { Point, SvgPath, SvgControlPoint, SvgItem, SvgPoint } from '../../lib/svg';
 
@@ -114,7 +114,10 @@ export class CanvasComponent implements OnInit, OnChanges, AfterViewInit {
     const cap = (val:number, max:number) => val > max ? max : val < -max ? -max : val;
     const throttler = throttleTime(20, undefined, {leading: false, trailing: true});
     this.wheel$
-      .pipe( buffer(this.wheel$.pipe(throttler)) )
+      .pipe(
+        // In penpot zoom works with ctrl key pressed
+        filter(ev => ev.ctrlKey),
+        buffer(this.wheel$.pipe(throttler)) )
       .pipe( map(ev => ({
           event: ev[0],
           deltaY: ev.reduce((acc, cur) => acc + cap(cur.deltaY, 50), 0)
@@ -145,6 +148,8 @@ export class CanvasComponent implements OnInit, OnChanges, AfterViewInit {
   }
   @HostListener('wheel', ['$event']) onWheel($event: WheelEvent) {
     this.wheel$.next($event);
+    $event.preventDefault();
+    $event.stopPropagation();
   }
   @HostListener('click', ['$event']) onClick($event: MouseEvent) {
     this.hoveredItem = null;
