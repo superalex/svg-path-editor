@@ -607,16 +607,8 @@ html body .mat-mdc-mini-fab.mat-mdc-button-disabled {
     color: var(--foreground-tertiary);
 }
 
-html body path.filled.ng-star-inserted {
-    fill: var(--accent-primary);
-    opacity: 0.2;
-}
 .drawings > svg {
     background-color: var(--background-tertiary);
-}
-
-html body svg line.grid.ng-star-inserted {
-    stroke: var(--background-secondary);
 }
 
 /* Header
@@ -629,4 +621,74 @@ html body svg line.grid.ng-star-inserted {
 --------------------------*/
 html body .footer.ng-star-inserted  {
     display: none;
+}
+
+/* canvas.component.css overrides
+--------------------------*/
+html body svg path.ng-star-inserted {
+    stroke:var(--foreground-primary);
+}
+html body svg path.filled.ng-star-inserted {
+    fill: var(--accent-primary);
+    opacity: 0.2;
+}
+html body svg path.hovered.ng-star-inserted {
+    stroke: var(--accent-quaternary);
+}
+html body svg path.dragged.ng-star-inserted {
+    stroke: var(--accent-primary);
+}
+html body svg line.grid.ng-star-inserted {
+    stroke: var(--background-secondary);
+}
+html body svg line.grid.tick.ng-star-inserted {
+    stroke: var(--accent-tertiary);
+}
+html body svg line.control.ng-star-inserted {
+    stroke:var(--foreground-tertiary);
+}
+html body svg line.hovered.ng-star-inserted {
+    stroke:var(--accent-quaternary);
+}
+html body svg circle.control.ng-star-inserted {
+    fill:var(--foreground-tertiary); // lines, put secondary for more contrast
+}
+html body svg circle.target.ng-star-inserted {
+    fill:var(--foreground-primary);
+}
+html body svg circle.hovered.ng-star-inserted {
+    fill:var(--accent-quaternary);
+}
+html body svg circle.dragged.ng-star-inserted {
+    fill:var(--accent-primary);
+}
+html body svg :host.preview.ng-star-inserted {
+    background-color:var(--foreground-primary);
+}
+html body svg :host.preview path.ng-star-inserted {
+    stroke:var(--background-secondary);
+}
+html body svg :host.preview path.filled.ng-star-inserted {
+    fill:var(--background-secondary);
+}
+html body svg :host.preview path.hovered.ng-star-inserted {
+    stroke: var(--accent-quaternary);
+}
+html body svg text.tick.ng-star-inserted {
+    fill: var(--background-tertiary);
+}
+html body svg rect.image-control.ng-star-inserted {
+    fill: var(--background-secondary);
+}
+html body svg line.image-control.ng-star-inserted {
+    stroke:var(--background-quaternary);
+}
+html body svg circle.image-control.ng-star-inserted {
+    fill:var(--background-quaternary);
+}
+html body svg .focused-image line.image-control.ng-star-inserted {
+    stroke:var(--accent-primary);
+}
+html body svg .focused-image circle.image-control.ng-star-inserted {
+    fill:var(--accent-primary);
 }
