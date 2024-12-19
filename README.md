@@ -1,6 +1,7 @@
 # Penpot Path Editor
 
-Penppot plugin to edit or create SVG paths based on: https://yqnn.github.io/svg-path-editor/
+Penpot plugin to edit or create SVG paths based on: https://yqnn.github.io/svg-path-editor/
+
 ![Image of Yaktocat in Penpot](./doc/screenshot-penpot.png)
 
 ## How to Use
