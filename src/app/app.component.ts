@@ -110,14 +110,16 @@ export class AppComponent implements AfterViewInit {
     this.reloadPath(this.rawPath, true);
 
     window.addEventListener("message", async (event) => {
-      if (event.data.type === "set_path") {
-        const autozoom = this.penpotId != event.data.penpot_id;
-        this.reloadPath(event.data.content, autozoom);
-        this.penpotId = event.data.penpot_id;
+      switch (event.data.type) {
+        case 'setpath':
+          this.reloadPath(event.data.content, this.penpotId != event.data.penpot_id);
+          this.penpotId = event.data.penpot_id;
+          break;
+        case 'theme':
+          this.theme = event.data.content;
+          break;
       }
-      else if (event.data.type === "theme") {
-        this.theme = event.data.content;
-      }
+
     });
     parent.postMessage({ type: 'ready' }, "*");
   }
@@ -184,6 +186,14 @@ export class AppComponent implements AfterViewInit {
   set rawPath(value: string) {
       this._rawPath = value;
       this.pushHistory();
+  }
+
+  updatePenpotPath(path: string) {
+    const message = {
+      type: "update-path",
+      content: this.rawPath
+    };
+    this.debouncedPostMessage(message);    
   }
 
   setIsDragging(dragging: boolean) {
@@ -398,11 +408,7 @@ export class AppComponent implements AfterViewInit {
   afterModelChange() {
     this.reloadPoints();
     this.rawPath = this.parsedPath.asString(4, this.cfg.minifyOutput);
-    const message = {
-      type: "update-path",
-      content: this.rawPath
-    };
-    this.debouncedPostMessage(message);
+    this.updatePenpotPath(this.rawPath);
   }
 
   roundValues(decimals: number) {
@@ -496,6 +502,7 @@ export class AppComponent implements AfterViewInit {
         this.parsedPath = new SvgPath('');
       }
     }
+    this.updatePenpotPath(this.rawPath);
   }
 
   reloadPoints(): void {
