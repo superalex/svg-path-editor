@@ -348,8 +348,9 @@ body .mdc-form-field {
 --------------------------*/
 body .left-column button.mat-flat-button,
 body .mat-mdc-raised-button:not(:disabled) {
-    background-color: var(--background-secondary);
+    background-color: var(--background-tertiary);
     color: var(--foreground-secondary);
+    box-shadow: none;
     
     &:hover:not(:disabled) {
         background-color: var(--background-quaternary);
@@ -374,15 +375,28 @@ body .mat-mdc-raised-button:not(:disabled) {
         border: 2px solid var(--background-quaternary)
     }
 }
+body .left-column-close.mat-mdc-raised-button:not(:disabled),
+body .left-column-open.mat-mdc-raised-button:not(:disabled) {
+    background-color: var(--background-primary);
+    border: 1px solid var(--background-quaternary);
+    border-radius: 0 8px 8px 0;
+}
+body .left-column-close.mat-mdc-raised-button {
+    right: -30px;
+}
 
 html body .left-column .mat-mdc-mini-fab.mat-primary,
 html body .left-column .mat-mdc-mini-fab.mat-accent {
     box-shadow: none;
 }
 html body .left-column .mat-mdc-mini-fab.mat-primary {
-    background-color: var(--background-secondary);
+    background-color: var(--background-tertiary);
     color: var(--foreground-secondary);
     border: 1px solid var(--background-quaternary);
+    &:hover{
+        background-color: var(--background-secondary);
+        color: var(--accent-primary);
+    }
 }
 html body .left-column .mat-mdc-mini-fab.mat-accent {
     background-color: var(--accent-primary);
