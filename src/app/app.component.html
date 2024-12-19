@@ -1,4 +1,4 @@
-<div style="display:flex;flex-direction:row;height: 100%;" @leftColumnParent [ngClass]="['theme-'+theme]">
+<div style="display:flex;flex-direction:row;height: 100%;" @leftColumnParent [ngClass]="['theme-'+theme]" *ngIf="penpotId">
     <div *ngIf="isLeftPanelOpened" @leftColumn (@leftColumn.done)="canvas?.refreshCanvasSize()" class="left-column-wrapper">
         <button mat-raised-button class="left-column-close"
             (click)="toggleLeftPanel()"
@@ -459,6 +459,9 @@
     </div>
 </div>
 
+<div class="penpot-intro" *ngIf="!penpotId">
+  <h1>Select shape</h1>
+</div>
 
 <div *ngIf="isLeftPanelOpened"  class="footer">
     <a href="https://github.com/Yqnn/svg-path-editor" target="_blank">

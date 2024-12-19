@@ -89,7 +89,7 @@ export class AppComponent implements AfterViewInit {
 
   isShapeSelected = false;
 
-  penpot_id = "";
+  penpotId = "";
 
   private debouncedPostMessage = _.debounce((message: any) => {
     parent.postMessage(message, "*");
@@ -111,9 +111,9 @@ export class AppComponent implements AfterViewInit {
 
     window.addEventListener("message", async (event) => {
       if (event.data.type === "set_path") {
-        const autozoom = this.penpot_id != event.data.penpot_id;
+        const autozoom = this.penpotId != event.data.penpot_id;
         this.reloadPath(event.data.content, autozoom);
-        this.penpot_id = event.data.penpot_id;
+        this.penpotId = event.data.penpot_id;
       }
       else if (event.data.type === "theme") {
         this.theme = event.data.content;
