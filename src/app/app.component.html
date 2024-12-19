@@ -456,24 +456,17 @@
             [(focusedImage)]="focusedImage"
             (cursorPosition)="setCursorPosition($event)"
         ></svg>
+        
+        <div class="gh-ref">
+            <a href="https://github.com/superalex/svg-path-editor" target="_blank">
+                <mat-icon svgIcon="github" matTooltip="GitHub repo"></mat-icon>
+            </a>
+        </div>
     </div>
 </div>
 
 <div class="penpot-intro" *ngIf="!penpotId">
   <h1>Select shape</h1>
-  <div class="footer">
-    <a href="https://github.com/superalex/svg-path-editor" target="_blank">
-        <mat-icon svgIcon="github"></mat-icon> GitHub
-    </a>
-  </div>
-</div>
-
-<div *ngIf="isLeftPanelOpened"  class="footer">
-    <div class="gh-ref">
-        <a href="https://github.com/superalex/svg-path-editor" target="_blank">
-            <mat-icon svgIcon="github" matTooltip="GitHub repo"></mat-icon>
-        </a>
-    </div>
 </div>
 
 <app-import (importPath)="openPath($event, '')"></app-import>
