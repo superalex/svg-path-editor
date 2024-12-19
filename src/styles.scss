@@ -706,12 +706,18 @@ html body svg .focused-image circle.image-control.ng-star-inserted {
 --------------------------*/
 .penpot-intro {
     height: 100%;
-    .title .mat-icon {
+    .mat-icon.plugin-icon {
         height: 128px;
         width: 128px;
+        padding: 16px;
+        border-radius: 90px;
         margin-bottom: 32px;
+        background-color: var(--background-quaternary);
         path.stroke-shape {
-            stroke: var(--background-quaternary) !important;
+            //stroke: var(--background-primary) !important;
+        }
+        path.fills {
+            fill: transparent !important;
         }
     }
     .title {
