@@ -60,7 +60,7 @@
 	--lb-quaternary: #eef0f2;
 	--df-primary: #ffffff;
 	--df-secondary: #8f9da3;
-	--df-tertiary: #495e74;
+	--df-tertiary: #585c61;
 	--lf-primary: #000000;
 	--lf-secondary: #495e74;
 	--lf-tertiary: #8f9da3;
@@ -598,7 +598,7 @@ html body .mat-mdc-mini-fab.mat-primary {
     border: 1px solid var(--background-quaternary);
     &:hover {
         background-color: var(--background-secondary);
-        color: var(--accent-primary)
+        color: var(--accent-primary);
     }
 }
 // Buttons disabled
@@ -607,19 +607,27 @@ html body .mat-mdc-mini-fab.mat-mdc-button-disabled {
     color: var(--foreground-tertiary);
 }
 
+/* GitHub reference
+--------------------------*/
+.gh-ref {
+    position: absolute;
+    bottom: 8px;
+    left: 324px;
+    .mat-icon {
+        fill: var(--foreground-tertiary);
+        width: 32px;
+        height: 32px;
+    }
+    :hover .mat-icon {
+        fill: var(--accent-primary);
+    }
+}
 
 /* Header
 --------------------------*/
 .inner >.header {
     // cant get there?
 }
-/*Hiding footer
--> ensure to credit and provide access to sponsorship somewhere else
---------------------------*/
-html body .footer.ng-star-inserted  {
-    display: none;
-}
-
 /* canvas.component.css overrides
 --------------------------*/
 html body .drawings > svg {
