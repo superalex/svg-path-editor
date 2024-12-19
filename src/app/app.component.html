@@ -468,8 +468,13 @@
 <div class="penpot-intro" *ngIf="!penpotId" [ngClass]="['theme-'+theme]">
     <div class="title">
         <mat-icon svgIcon="plugin_icon"></mat-icon>
-        Select a Penpot shape to start editing
+        Select a Penpot path to start editing
     </div>
+    <div class="gh-ref">
+      <a href="https://github.com/superalex/svg-path-editor" target="_blank">
+          <mat-icon svgIcon="github" matTooltip="GitHub repo"></mat-icon>
+      </a>
+  </div>
 </div>
 
 <app-import (importPath)="openPath($event, '')"></app-import>
