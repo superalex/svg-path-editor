@@ -700,3 +700,31 @@ html body svg .focused-image line.image-control.ng-star-inserted {
 html body svg .focused-image circle.image-control.ng-star-inserted {
     fill:var(--accent-primary);
 }
+
+
+/* Header
+--------------------------*/
+.penpot-intro {
+    height: 100%;
+    .mat-icon {
+        height: 128px;
+        width: 128px;
+        margin-bottom: 32px;
+        path.stroke-shape {
+            stroke: var(--background-quaternary) !important;
+        }
+    }
+    .title {
+        color: var(--foreground-secondary);
+        font-weight: 500;
+        font-size: 24px;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 24px;
+        line-height: 1.5;
+    }
+}

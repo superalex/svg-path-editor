@@ -456,7 +456,7 @@
             [(focusedImage)]="focusedImage"
             (cursorPosition)="setCursorPosition($event)"
         ></svg>
-        
+
         <div class="gh-ref">
             <a href="https://github.com/superalex/svg-path-editor" target="_blank">
                 <mat-icon svgIcon="github" matTooltip="GitHub repo"></mat-icon>
@@ -465,8 +465,11 @@
     </div>
 </div>
 
-<div class="penpot-intro" *ngIf="!penpotId">
-  <h1>Select shape</h1>
+<div class="penpot-intro" *ngIf="!penpotId" [ngClass]="['theme-'+theme]">
+    <div class="title">
+        <mat-icon svgIcon="plugin_icon"></mat-icon>
+        Select a Penpot shape to start editing
+    </div>
 </div>
 
 <app-import (importPath)="openPath($event, '')"></app-import>
